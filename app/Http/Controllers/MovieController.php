@@ -19,6 +19,8 @@ class MovieController extends Controller
     public function save(Request $request) {
         $data = $request->validate([
             "title" => "required",
+            "director" => "required",
+            "release_date" => "required|numeric",
             "description" => "required",
             "image" => "nullable",
         ]);
@@ -35,6 +37,8 @@ class MovieController extends Controller
     public function update(Movie $movie, Request $request) {
         $data = $request->validate([
             "title" => "required",
+            "director" => "required",
+            "release_date" => "required|numeric",
             "description" => "required",
             "image" => "nullable",
         ]);
