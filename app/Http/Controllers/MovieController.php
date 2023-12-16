@@ -40,7 +40,12 @@ class MovieController extends Controller
         ]);
 
         $movie->update($data);
-        return redirect(route('movies.index'))->with('success', 'Film mis à jour');
+        return redirect(route('movies.index'))->with('success', 'Le film a bien été mis à jour');
+    }
+
+    public function delete(Movie $movie) {
+        $movie->delete();
+        return redirect(route('movies.index'))->with('success', 'Le film a bien été supprimé');
     }
 
 }

@@ -72,7 +72,15 @@
                   <span class="mx-1 text-xs text-gray-600">15 Déc 2023</span>
                 </div>
               </div>
-              <a href="{{route('movies.edit', ['movie' => $item])}}" class="mt-1 text-xs text-gray-600">Modifier</a>
+              <div class="mt-1 text-xs text-gray-600">
+                <a href="{{route('movies.edit', ['movie' => $item])}}">Modifier</a>
+                <span>•</span>
+                <form class="inline" method="post" action="{{route('movies.delete', ['movie'=>$item])}}">
+                  @csrf 
+                  @method('delete')
+                  <input type="submit" class="cursor-pointer" value="Supprimer">
+                </form>
+              </div>
             </div>
           </section>
         </div>
