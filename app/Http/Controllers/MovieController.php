@@ -27,5 +27,20 @@ class MovieController extends Controller
         return redirect(route('movies.index'));
 
     }
+    
+    public function edit(Movie $movie) {
+        return view('movies.edit', ["movie" => $movie]);
+    }
+
+    public function update(Movie $movie, Request $request) {
+        $data = $request->validate([
+            "title" => "required",
+            "description" => "required",
+            "image" => "nullable",
+        ]);
+
+        $movie->update($data);
+        return redirect(route('movies.index'))->with('success', 'Film mis à jour');
+    }
 
 }
