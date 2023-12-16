@@ -4,6 +4,9 @@
 @stop
 
 @section('content')
+<div class="flex justify-end">
+  <a href="{{route('movies.create')}}" class="p-3 bg-black rounded-full text-white w-100 font-semibold">Ajouter</a>
+</div>
 
 <section class="flex flex-row flex-wrap mx-auto">
     @foreach ($movies as $item)

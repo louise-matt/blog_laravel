@@ -1,6 +1,6 @@
 
 <nav class="flex items-center bg-gray-800 p-3 flex-wrap">
-      <a href="#" class="p-2 mr-4 inline-flex items-center">
+      <a href="{{route('home')}}" class="p-2 mr-4 inline-flex items-center">
         <svg
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
