@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title')</title>
 
@@ -12,20 +13,21 @@
 
         <!-- Styles -->
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
 
     </head>
-    <body class="antialiased">
+    <body class="antialiased" id="blog">
         <header>
             @include('layouts/navigation')
         </header>
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        <div class="relative sm:flex sm:justify-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
+            <div class="w-full mx-auto p-6 lg:p-8">
                
                 <h1 class="mt-8 text-xl font-bold uppercase tracking-wide text-center">@yield("title")</h1>
 
                <div class="mt-8">
-                @yield("content")
+                    @yield("content")
                </div>
 
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">

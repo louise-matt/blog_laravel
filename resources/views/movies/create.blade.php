@@ -24,7 +24,7 @@
     </div>
   @endif
 </div>
-<form action="{{route('movies.save')}}" method="post">
+<form action="{{route('movies.save')}}" method="post" enctype="multipart/form-data">
   @csrf
   @method('post')
   <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
@@ -71,11 +71,18 @@
           Description
         </label>
         <textarea name="description" rows="10" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-description"></textarea>
-        <p class="text-grey-dark text-xs italic">Faites un résumé du film avec les informatioins importante.</p>
+        <p class="text-grey-dark text-xs italic">Faites un résumé du film avec les informatioins importantes.</p>
       </div>
     </div>
-
-    <input name="image" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-image" type="text">
+    
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-full px-3">
+        <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-description">
+          Image
+        </label>
+        <input-file-component value=""></input-file-component>
+      </div>
+    </div>
 
     <button type="submit" class="p-3 bg-black rounded-full text-white w-full font-semibold">Enregistrer</button>
 

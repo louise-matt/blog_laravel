@@ -1,11 +1,9 @@
-require('./bootstrap');
+import './bootstrap';
+import { createApp } from 'vue';
+import InputFileComponent from './components/InputFileComponent.vue';
 
-// import Alpine from 'alpinejs';
+const app = createApp({});
 
-// window.Alpine = Alpine;
+app.component('input-file-component', InputFileComponent);
 
-// Alpine.start();
-
-// const app = createApp(); 
-
-// app.mount('#root');
+app.mount('#blog');
