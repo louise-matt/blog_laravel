@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
-
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::put('/movies/{movie}/update', [MovieController::class, 'update'])->name('
 
 Route::delete('/movies/{movie}/delete', [MovieController::class, 'delete'])->name('movies.delete');
 
+// Movies categories
+Route::get('/categories', [CategoryController::class, 'categories'])->name('movies.categories');
+
+// Médias 
+Route::post('/upload', [FileController::class, 'upload'])->name('upload');
 
 
 

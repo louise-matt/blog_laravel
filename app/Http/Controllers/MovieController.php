@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use App\Models\FileUpload;
+use App\Models\Category;
 
 class MovieController extends Controller
 {
@@ -14,13 +15,15 @@ class MovieController extends Controller
     }
 
     function create() {
-        return view('movies.create');
+        $categories = Category::all();
+        return view('movies.create', ["categories"=> $categories, "title"=>"Ajouter un film"]);
     }
 
     public function save(Request $request) {
 
         $data = $request->validate([
             "title" => "required",
+            "category" => "required|numeric",
             "director" => "required",
             "release_date" => "required|numeric",
             "description" => "required",
@@ -44,12 +47,14 @@ class MovieController extends Controller
     }
     
     public function edit(Movie $movie) {
-        return view('movies.edit', ["movie" => $movie]);
+        $categories = Category::all();
+        return view('movies.edit', ["movie" => $movie, "categories"=> $categories, "title"=>"Modifier ce film"]);
     }
 
     public function update(Movie $movie, Request $request) {
         $data = $request->validate([
             "title" => "required",
+            "category" => "required|numeric",
             "director" => "required",
             "release_date" => "required|numeric",
             "description" => "required",

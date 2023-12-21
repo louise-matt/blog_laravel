@@ -29,6 +29,7 @@
 <section class="flex flex-row flex-wrap mx-auto">
     @foreach ($movies as $item)
     <!-- Card Component -->
+    {{-- TODO : {{$item->category->name}} --}}
       <div
         class="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3"
       >
